@@ -1,0 +1,16 @@
+group 'com.derongan.minecraft.mineinabyss'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.derongan.minecraft', name: 'MineInAbyss-API', version: '0.3b-SNAPSHOT'
+}
