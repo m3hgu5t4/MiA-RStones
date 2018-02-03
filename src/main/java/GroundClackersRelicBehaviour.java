@@ -72,6 +72,7 @@ public class GroundClackersRelicBehaviour implements UseRelicBehaviour, EntityHi
 
                 player.getWorld().spawnParticle(Particle.BLOCK_CRACK, a.getLocation(), 10, .3, .1, .3, new MaterialData(Material.STONE));
             });
+            player.getWorld().playSound(block.getLocation(), Sound.ENTITY_LIGHTNING_IMPACT, SoundCategory.PLAYERS, .5f, .5f);
             player.getWorld().spawnParticle(Particle.BLOCK_CRACK, block.getLocation().add(.5,1,.5), 200, 2.3, .1, 2.3, new MaterialData(Material.DIRT));
         }
     }
