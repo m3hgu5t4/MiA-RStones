@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.derongan.minecraft:MineInAbyss-API:0.4b-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/derongan/minecraft/MineInAbyss-API/0.4b-SNAPSHOT/MineInAbyss-API-0.4b-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

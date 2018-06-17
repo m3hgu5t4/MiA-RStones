@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="relic-test_main" target="1.8" />
       <module name="relic-test_test" target="1.8" />
+      <module name="repugnant-stones_main" target="1.8" />
+      <module name="repugnant-stones_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

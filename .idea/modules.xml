@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/relic-test.iml" filepath="$PROJECT_DIR$/.idea/modules/relic-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/relic-test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/relic-test_main.iml" group="relic-test" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/relic-test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/relic-test_test.iml" group="relic-test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repugnant-stones.iml" filepath="$PROJECT_DIR$/.idea/modules/repugnant-stones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repugnant-stones_main.iml" filepath="$PROJECT_DIR$/.idea/modules/repugnant-stones_main.iml" group="repugnant-stones" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repugnant-stones_test.iml" filepath="$PROJECT_DIR$/.idea/modules/repugnant-stones_test.iml" group="repugnant-stones" />
     </modules>
   </component>
 </project>

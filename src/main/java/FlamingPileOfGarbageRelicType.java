@@ -1,29 +1,17 @@
-import com.derongan.minecraft.mineinabyss.API.Relic.Behaviour.RelicBehaviour;
-import com.derongan.minecraft.mineinabyss.API.Relic.RelicRarity;
-import com.derongan.minecraft.mineinabyss.API.Relic.Relics.RelicType;
+import com.derongan.minecraft.mineinabyss.Relic.Behaviour.RelicBehaviour;
+import com.derongan.minecraft.mineinabyss.Relic.RelicRarity;
+import com.derongan.minecraft.mineinabyss.Relic.Relics.RelicType;
 import org.bukkit.Material;
 
 import java.util.Arrays;
 import java.util.List;
 
-public enum TestRelicType implements RelicType {
-    POTATO(Material.POTATO_ITEM,
-            0,
-            new RelicBehaviour() {
-                @Override
-                public void setRelicType(RelicType type) {
-
-                }
-            },
-            "Potato",
-            Arrays.asList("Its a potato..."),
-            RelicRarity.TOOL
-    ),
-    GROUND_CLACKERS(Material.IRON_HOE, 23,
-            new GroundClackersRelicBehaviour(),
-            "Ground Clackers",
-            Arrays.asList("Pound the ground"),
-            RelicRarity.SECOND_GRADE
+public enum FlamingPileOfGarbageRelicType implements RelicType {
+    REPUGNANT_STONES(Material.POISONOUS_POTATO, 0,
+            new RepugnantStonesRelicBehaviour(),
+            "Repugnant Stones",
+            Arrays.asList("This makes me sick!"),
+            RelicRarity.THIRD_GRADE
     );
 
     private final Material material;
@@ -33,7 +21,7 @@ public enum TestRelicType implements RelicType {
     private final RelicBehaviour behaviour;
     private final RelicRarity rarity;
 
-    TestRelicType(Material material, long durability, RelicBehaviour behaviour, String name, List<String> lore, RelicRarity rarity) {
+    FlamingPileOfGarbageRelicType(Material material, long durability, RelicBehaviour behaviour, String name, List<String> lore, RelicRarity rarity) {
         this.durability = (short) durability;
         this.material = material;
         this.behaviour = behaviour;

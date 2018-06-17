@@ -1,4 +1,4 @@
-group 'com.derongan.minecraft.mineinabyss'
+group 'com.m3hgu5t4.minecraft.mineinabyss'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -12,5 +12,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'com.derongan.minecraft', name: 'MineInAbyss-API', version: '0.3b-SNAPSHOT'
+    compile group: 'com.derongan.minecraft', name: 'MineInAbyss-API', version: '0.4b-SNAPSHOT'
 }
