@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="m3hgu5t4-relics_main" target="1.8" />
+      <module name="m3hgu5t4-relics_test" target="1.8" />
       <module name="relic-test_main" target="1.8" />
       <module name="relic-test_test" target="1.8" />
       <module name="repugnant-stones_main" target="1.8" />

@@ -15,9 +15,9 @@ import java.util.List;
 import static java.lang.Math.sqrt;
 
 public class RepugnantStonesRelicBehaviour implements UseRelicBehaviour {
-    @Override
-    public void onUse(PlayerInteractEvent playerInteractEvent) {
-        Player player = playerInteractEvent.getPlayer();
+	@Override
+	public void onUse(PlayerInteractEvent e) {
+		Player player = e.getPlayer();
 
 		player.getInventory().getItemInMainHand().setAmount(
 				player.getInventory().getItemInMainHand().getAmount() - 1
@@ -46,5 +46,5 @@ public class RepugnantStonesRelicBehaviour implements UseRelicBehaviour {
 				));
 			}
 		}
-    }
+	}
 }
