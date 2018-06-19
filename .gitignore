@@ -1,6 +1,9 @@
 .gradle
 /build/
+
 .idea
+build&move.bat
+README.md
 
 # Ignore Gradle GUI config
 gradle-app.setting
