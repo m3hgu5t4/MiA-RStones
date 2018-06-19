@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum FlamingPileOfGarbageRelicType implements RelicType {
-	SPYGLASS(Material.STICK, 0,
+	SPYGLASS(Material.IRON_SPADE, 0,
 			new SpyglassBehaviour(),
 			"Spyglass",
 			Arrays.asList("Check what something is made of"),
@@ -19,7 +19,7 @@ public enum FlamingPileOfGarbageRelicType implements RelicType {
 			Arrays.asList("This makes me sick!"),
 			RelicRarity.THIRD_GRADE
 	),
-	HOE_OF_PLENTY(Material.IRON_HOE, 0,
+	HOE_OF_PLENTY(Material.GOLD_HOE, 0,
 			new HoeOfPlentyRelicBehaviour(),
 			"Hoe of Plenty",
 			Arrays.asList("A hoe that makes you food"),
