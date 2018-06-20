@@ -24,13 +24,32 @@ public class HoeOfPlentyRelicBehaviour implements UseRelicBehaviour {
 			Material.APPLE,
 			Material.SUGAR,
 	};
+	public Material[] HoeableBlocks = {
+		Material.DIRT,
+		Material.GRASS,
+		Material.GRASS_PATH,
+	};
 
+	public boolean canHoe(Block block) {
+		boolean hoeable = false;
+		for (Material mat : HoeableBlocks) {
+			if (block.getType() == mat) {
+				hoeable = true;
+				break;
+			}
+		}
+		if (hoeable) {
+			return block.getRelative(BlockFace.UP).getType() == Material.AIR; //if there ain't shit above so it can be hoed
+		} else {
+			return false;
+		}
+	}
 	@Override
 	public void onUse(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 		Block target = e.getClickedBlock();
 
-		if (target.getType() == Material.DIRT || target.getType() == Material.GRASS) {
+		if (canHoe(target)) {
 			Random rng = new Random();
 			int count;
 			//ItemStack toDrop;
