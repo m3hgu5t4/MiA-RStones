@@ -14,8 +14,9 @@ public class CooldownTestBehaviour implements UseRelicBehaviour {
 		if (RC.cooldownFinished(item)) {
 			RC.startCooldown(item, 20);
 			player.chat("20 second cooldown started");
+			System.out.println("lore is " + item.getItemMeta().getLore().get(0));
 		} else {
-			player.chat(Long.toString(RC.getRemainingCooldown(item) / 1000) + "seconds remaining");
+			player.chat(Long.toString(RC.getRemainingCooldown(item)) + "milliseconds remaining");
 		}
 	}
 }

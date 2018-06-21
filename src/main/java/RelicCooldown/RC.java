@@ -3,6 +3,8 @@
 //with
 //  https://gist.github.com/filoghost/f53ecb7b014c40b66bdc
 //with some modifications
+package RelicCooldown;
+
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -10,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.lang.System;
 import java.util.List;
 
-public class RelicCooldown {
+public class RC {
 	private static final String SEQUENCE_HEADER = "" + ChatColor.RESET + ChatColor.UNDERLINE + ChatColor.RESET;
 	private static final String SEQUENCE_FOOTER = "" + ChatColor.RESET + ChatColor.ITALIC + ChatColor.RESET;
 
@@ -22,8 +24,8 @@ public class RelicCooldown {
 		addCooldown(item, endEpoch);
 	}
 	public static boolean cooldownFinished(ItemStack item) {
-		if (!hasCooldown(item)) { return false; }
-		return getRemainingCountdown(item) <= 0;
+		if (!hasCooldown(item)) { return true; }
+		return getRemainingCooldown(item) == 0;
 	}
 
 	public static boolean hasCooldown(ItemStack item) {
@@ -42,12 +44,14 @@ public class RelicCooldown {
 		int end = loreo.indexOf(SEQUENCE_FOOTER);
 		if (start < 0 || end < 0) { return; }
 
-		loreo = loreo.substring(0, start) + loreo.substring(end + SEQUENCE_FOOTER.length(), loreo.length()); //remove the bit between header and footer
+		loreo = loreo.substring(0, start) + loreo.substring(end + SEQUENCE_FOOTER.length()); //remove the bit between header and footer
 		lore.set(0, loreo);
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 	}
-	public static void addCooldown(ItemStack item, long endEpoch) { addCooldown(item, endEpoch, 0); } //where to stick the string in
+	public static void addCooldown(ItemStack item, long endEpoch) { addCooldown(item, endEpoch,
+			item.getItemMeta().getLore().get(0).length() //where to stick the string in
+	); }
 	public static void addCooldown(ItemStack item, long endEpoch, int pos) {
 		ItemMeta meta = item.getItemMeta();
 		List<String> lore = meta.getLore();
@@ -55,9 +59,9 @@ public class RelicCooldown {
 
 		String loreo = lore.get(0);
 
-		loreo = loreo.substring(0, pos) + SEQUENCE_HEADER + longToColours(endEpoch) + loreo.substring(pos, loreo.length());
+		loreo = loreo.substring(0, pos) + SEQUENCE_HEADER + longToColours(endEpoch) + SEQUENCE_FOOTER + loreo.substring(pos);
 
-		lore.set(1, loreo);
+		lore.set(0, loreo);
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 	}
@@ -65,7 +69,8 @@ public class RelicCooldown {
 		String endEpoch = Long.toString(l);
 		StringBuilder output = new StringBuilder(); //this is only here cuz intellij didn't like it being += in a loop
 		for (char ch : endEpoch.toCharArray()) {
-			output.append(ChatColor.COLOR_CHAR + ch);
+			output.append(ChatColor.COLOR_CHAR);
+			output.append(ch);
 		}
 		return output.toString();
 	}
@@ -84,7 +89,7 @@ public class RelicCooldown {
 		}
 		return Long.valueOf(endEpoch.toString());
 	}
-	public static long getRemainingCountdown(ItemStack item) {
+	public static long getRemainingCooldown(ItemStack item) {
 		long currentTime = System.currentTimeMillis();
 		long endTime = getCooldownEpoch(item);
 

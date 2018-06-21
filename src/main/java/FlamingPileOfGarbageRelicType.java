@@ -7,19 +7,25 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum FlamingPileOfGarbageRelicType implements RelicType {
-	SPYGLASS(Material.IRON_SPADE, 0,
+	SPYGLASS(Material.IRON_SPADE, 3,
 			new SpyglassBehaviour(),
 			"Spyglass",
 			Arrays.asList("Check what something is made of"),
 			RelicRarity.NOT_IMPLEMENTED
 	),
-	REPUGNANT_STONES(Material.POISONOUS_POTATO, 0,
+	COOLDOWN_TEST(Material.WATCH, 3,
+			new CooldownTestBehaviour(),
+			"Cooldown Test",
+			Arrays.asList("ye feck off, idk how to cooldown gud"),
+			RelicRarity.NOT_IMPLEMENTED
+	),
+	REPUGNANT_STONES(Material.POISONOUS_POTATO, 3,
 			new RepugnantStonesRelicBehaviour(),
 			"Repugnant Stones",
 			Arrays.asList("This makes me sick!"),
 			RelicRarity.THIRD_GRADE
 	),
-	HOE_OF_PLENTY(Material.GOLD_HOE, 0,
+	HOE_OF_PLENTY(Material.GOLD_HOE, 3,
 			new HoeOfPlentyRelicBehaviour(),
 			"Hoe of Plenty",
 			Arrays.asList("A hoe that makes you food"),
