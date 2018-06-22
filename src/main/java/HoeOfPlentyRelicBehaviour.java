@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 public class HoeOfPlentyRelicBehaviour implements UseRelicBehaviour {
-	public Material[] HoeFood = {
+	public static Material[] HoeFood = {
 			Material.WHEAT,
 			Material.BEETROOT,
 			Material.MELON,
@@ -24,7 +24,7 @@ public class HoeOfPlentyRelicBehaviour implements UseRelicBehaviour {
 			Material.APPLE,
 			Material.SUGAR,
 	};
-	public Material[] HoeableBlocks = {
+	public static Material[] HoeableBlocks = {
 		Material.DIRT,
 		Material.GRASS,
 		Material.GRASS_PATH,

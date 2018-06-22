@@ -30,6 +30,12 @@ public enum FlamingPileOfGarbageRelicType implements RelicType {
 			"Hoe of Plenty",
 			Arrays.asList("A hoe that makes you food"),
 			RelicRarity.SECOND_GRADE
+	),
+	SACRED_CRYSTALLINE_WATER(Material.BEETROOT_SOUP, 3,
+			new SacredCrystallineWaterRelicBehaviour(),
+			"Sacred Crystalline Water",
+			Arrays.asList("Drink to gain an effect"),
+			RelicRarity.SECOND_GRADE
 	);
 
 	private final Material material;

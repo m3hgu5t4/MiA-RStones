@@ -19,8 +19,8 @@ public class RepugnantStonesRelicBehaviour implements UseRelicBehaviour {
 	public void onUse(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 
-		player.getInventory().getItemInMainHand().setAmount(
-				player.getInventory().getItemInMainHand().getAmount() - 1
+		e.getItem().setAmount(
+				e.getItem().getAmount() - 1
 		);
 
 		double x = player.getLocation().getX();
@@ -42,7 +42,7 @@ public class RepugnantStonesRelicBehaviour implements UseRelicBehaviour {
 				otherPlayer.addPotionEffect(new PotionEffect(
 						PotionEffectType.CONFUSION,
 						120 * 20,  //2 minutes enough for smell stones?
-						1
+						0
 				));
 			}
 		}

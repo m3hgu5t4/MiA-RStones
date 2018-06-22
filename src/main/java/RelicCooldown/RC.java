@@ -9,12 +9,30 @@ import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import org.bukkit.entity.Player;
+
 import java.lang.System;
 import java.util.List;
 
 public class RC {
-	private static final String SEQUENCE_HEADER = "" + ChatColor.RESET + ChatColor.UNDERLINE + ChatColor.RESET;
-	private static final String SEQUENCE_FOOTER = "" + ChatColor.RESET + ChatColor.ITALIC + ChatColor.RESET;
+	private static String SEQUENCE_HEADER = "" + ChatColor.RESET + ChatColor.UNDERLINE + ChatColor.RESET;
+	private static String SEQUENCE_FOOTER = "" + ChatColor.RESET + ChatColor.ITALIC + ChatColor.RESET;
+
+	public static String NotifyColour = "" + ChatColor.RESET;
+
+	public static long[] unitValues = { //no ms
+		1000, //seconds
+		60, //min
+		60, //hour
+		24, //day
+	};
+	public static String[] unitNames = {
+		"millisecond",
+		"second",
+		"minute",
+		"hour",
+		"day",
+	};
 
 	public static void startCooldown(ItemStack item, long seconds) {
 		long endEpoch = System.currentTimeMillis() + (seconds * 1000);
@@ -26,6 +44,19 @@ public class RC {
 	public static boolean cooldownFinished(ItemStack item) {
 		if (!hasCooldown(item)) { return true; }
 		return getRemainingCooldown(item) == 0;
+	}
+	public static void notifyCooldown(Player player, ItemStack item) {
+		long cd = getRemainingCooldown(item);
+		int i;
+		for (i = 0; i < unitValues.length; i++) {
+			if (cd / unitValues[i] < 1) {
+				break;
+			}
+			cd = cd / unitValues[i];
+		}
+		player.sendMessage(NotifyColour + Long.toString(cd) + " " + unitNames[i] + (
+					cd == 1 ? "": "s"
+					) + " until you can use \"" + item.getItemMeta().getDisplayName() + NotifyColour + "\" again");
 	}
 
 	public static boolean hasCooldown(ItemStack item) {
