@@ -35,7 +35,10 @@ public class RC {
 	};
 
 	public static void startCooldown(ItemStack item, long seconds) {
-		long endEpoch = System.currentTimeMillis() + (seconds * 1000);
+		startMSCooldown(item, seconds * 1000);
+	}
+	public static void startMSCooldown(ItemStack item, long milliseconds) {
+		long endEpoch = System.currentTimeMillis() + milliseconds;
 		if (hasCooldown(item)) {
 			removeCooldown(item);
 		}
@@ -57,6 +60,26 @@ public class RC {
 		player.sendMessage(NotifyColour + Long.toString(cd) + " " + unitNames[i] + (
 					cd == 1 ? "": "s"
 					) + " until you can use \"" + item.getItemMeta().getDisplayName() + NotifyColour + "\" again");
+	}
+	public static boolean doEverything(Player player, ItemStack item, long seconds) {
+		return doEverythingMS(player, item, seconds * 1000);
+	}
+	public static boolean doEverythingMS(Player player, ItemStack item, long milliseconds) {
+		if (cooldownFinished(item)) { //deal with having a stackable relic base item
+			if (item.getAmount() > 1) {
+				ItemStack i = new ItemStack(item);
+				i.setAmount(1);
+				item.setAmount(item.getAmount() - 1);
+				startMSCooldown(i, milliseconds);
+				player.getInventory().addItem(i);
+			} else {
+				startMSCooldown(item, milliseconds);
+			}
+			return true;
+		} else {
+			notifyCooldown(player, item);
+			return false;
+		}
 	}
 
 	public static boolean hasCooldown(ItemStack item) {

@@ -36,6 +36,18 @@ public enum FlamingPileOfGarbageRelicType implements RelicType {
 			"Sacred Crystalline Water",
 			Arrays.asList("Drink to gain an effect"),
 			RelicRarity.SECOND_GRADE
+	),
+	IRON_SPIRIT(Material.IRON_NUGGET, 3,
+			new IronSpiritRelicBehaviour(),
+			"Iron Charm",
+			Arrays.asList("Defense at the cost of speed"),
+			RelicRarity.THIRD_GRADE
+	),
+	ANCIENT_ICEPICK(Material.DIAMOND_PICKAXE, 3,
+			new AncientIcepickRelicBehaviour(),
+			"Ancient Icepick",
+			Arrays.asList("An icy touch"),
+			RelicRarity.SECOND_GRADE
 	);
 
 	private final Material material;
