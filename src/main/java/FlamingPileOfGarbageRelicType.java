@@ -48,6 +48,12 @@ public enum FlamingPileOfGarbageRelicType implements RelicType {
 			"Ancient Icepick",
 			Arrays.asList("An icy touch"),
 			RelicRarity.SECOND_GRADE
+	),
+	DRAGON_TEETH(Material.FLINT, 3,
+			new DragonTeethRelicBehaviour(),
+			"Dragon Teeth",
+			Arrays.asList("A dangerous poison, less effective in higher doses"),
+			RelicRarity.SECOND_GRADE
 	);
 
 	private final Material material;

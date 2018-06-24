@@ -65,7 +65,7 @@ public class AncientIcepickRelicBehaviour implements UseRelicBehaviour, EntityHi
 			return;
 		}
 
-		int dur = 3;
+		int dur = 3 * 20;
 		LivingEntity ent = (LivingEntity) e.getEntity();
 		ent.addPotionEffect(new PotionEffect(
 				PotionEffectType.SLOW,
