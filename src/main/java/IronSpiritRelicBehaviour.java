@@ -10,11 +10,9 @@ public class IronSpiritRelicBehaviour implements UseRelicBehaviour {
 	@Override
 	public void onUse(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
-		if (!RC.cooldownFinished(e.getItem())) {
-			RC.notifyCooldown(player, e.getItem());
+		if (!RC.doEverything(player, e.getItem(), 60)) {
 			return;
 		}
-		RC.startCooldown(e.getItem(), 60);
 
 		int dur = 10 * 20;
 		player.addPotionEffect(new PotionEffect(

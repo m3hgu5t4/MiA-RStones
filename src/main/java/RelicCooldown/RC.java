@@ -65,8 +65,8 @@ public class RC {
 		return doEverythingMS(player, item, seconds * 1000);
 	}
 	public static boolean doEverythingMS(Player player, ItemStack item, long milliseconds) {
-		if (cooldownFinished(item)) { //deal with having a stackable relic base item
-			if (item.getAmount() > 1) {
+		if (cooldownFinished(item)) {
+			if (item.getAmount() > 1) { //deal with having a stackable relic base item
 				ItemStack i = new ItemStack(item);
 				i.setAmount(1);
 				item.setAmount(item.getAmount() - 1);
