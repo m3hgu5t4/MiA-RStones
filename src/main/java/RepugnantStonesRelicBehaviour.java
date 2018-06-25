@@ -9,6 +9,8 @@ import org.bukkit.util.Vector;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import m3hTools.Potion;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -39,11 +41,7 @@ public class RepugnantStonesRelicBehaviour implements UseRelicBehaviour {
 			dist = sqrt(xdist * xdist + ydist * ydist + zdist * zdist);
 
 			if (dist < 20 && dist > -20) {
-				otherPlayer.addPotionEffect(new PotionEffect(
-						PotionEffectType.CONFUSION,
-						120 * 20,  //2 minutes enough for smell stones?
-						0
-				));
+				Potion.addEffect(otherPlayer, PotionEffectType.CONFUSION, 120, 1);
 			}
 		}
 	}

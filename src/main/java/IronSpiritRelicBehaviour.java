@@ -4,7 +4,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import RelicCooldown.RC;
+import m3hTools.RC;
 
 public class IronSpiritRelicBehaviour implements UseRelicBehaviour {
 	@Override

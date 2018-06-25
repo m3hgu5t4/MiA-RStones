@@ -3,7 +3,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import RelicCooldown.RC;
+import m3hTools.RC;
 
 public class CooldownTestBehaviour implements UseRelicBehaviour {
 	@Override

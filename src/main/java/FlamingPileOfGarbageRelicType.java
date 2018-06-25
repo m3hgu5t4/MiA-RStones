@@ -19,6 +19,7 @@ public enum FlamingPileOfGarbageRelicType implements RelicType {
 			Arrays.asList("ye feck off, idk how to cooldown gud"),
 			RelicRarity.NOT_IMPLEMENTED
 	),
+
 	REPUGNANT_STONES(Material.POISONOUS_POTATO, 3,
 			new RepugnantStonesRelicBehaviour(),
 			"Repugnant Stones",
@@ -52,7 +53,13 @@ public enum FlamingPileOfGarbageRelicType implements RelicType {
 	DRAGON_TEETH(Material.FLINT, 3,
 			new DragonTeethRelicBehaviour(),
 			"Dragon Teeth",
-			Arrays.asList("A dangerous poison, less effective in higher doses"),
+			Arrays.asList("A deadly poison, less effective in higher doses"),
+			RelicRarity.SECOND_GRADE
+	),
+	EON_DEPTHS(Material.GOLDEN_APPLE, 3,
+			new EonDepthsRelicBehaviour(),
+			"Eon Depths",
+			Arrays.asList("Contains a liquor capable of greatly extending the lifespan of those who drink it"),
 			RelicRarity.SECOND_GRADE
 	);
 

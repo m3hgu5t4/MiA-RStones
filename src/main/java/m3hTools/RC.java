@@ -3,7 +3,7 @@
 //with
 //  https://gist.github.com/filoghost/f53ecb7b014c40b66bdc
 //with some modifications
-package RelicCooldown;
+package m3hTools;
 
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;

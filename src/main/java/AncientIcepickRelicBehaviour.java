@@ -1,6 +1,5 @@
 import com.derongan.minecraft.mineinabyss.Relic.Behaviour.UseRelicBehaviour;
 import com.derongan.minecraft.mineinabyss.Relic.Behaviour.EntityHitRelicBehaviour;
-import com.derongan.minecraft.mineinabyss.Relic.Relics.RelicType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.Material;
@@ -8,11 +7,11 @@ import org.bukkit.block.Block;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.block.BlockFace;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import RelicCooldown.RC;
+import m3hTools.RC;
+import m3hTools.Potion;
 
 import java.util.ArrayList;
 import static java.lang.Math.sqrt;
@@ -65,22 +64,10 @@ public class AncientIcepickRelicBehaviour implements UseRelicBehaviour, EntityHi
 			return;
 		}
 
-		int dur = 3 * 20;
+		int dur = 3;
 		LivingEntity ent = (LivingEntity) e.getEntity();
-		ent.addPotionEffect(new PotionEffect(
-				PotionEffectType.SLOW,
-				dur,
-				100 //freeze in place
-		));
-		ent.addPotionEffect(new PotionEffect(
-				PotionEffectType.SLOW_DIGGING,
-				dur,
-				100 //no attac
-		));
-		ent.addPotionEffect(new PotionEffect(
-				PotionEffectType.JUMP,
-				dur,
-				128 //no jump
-		));
+		Potion.addEffect(ent, PotionEffectType.SLOW, dur, 100); //freeze in place
+		Potion.addEffect(ent, PotionEffectType.SLOW_DIGGING, dur, 100); //no attac
+		Potion.addEffect(ent, PotionEffectType.JUMP, dur, 128); //no jump
 	}
 }
